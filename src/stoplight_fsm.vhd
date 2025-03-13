@@ -82,10 +82,10 @@ begin
 	-- CONCURRENT STATEMENTS ----------------------------
 	-- Next state logic
 	f_Q_next(0) <= (NOT f_Q(1)) AND i_C;
-	f_Q_next(1) <= (NOT f_Q(1)) AND f_Q(0) AND i_C;
+	f_Q_next(1) <= (NOT f_Q(1)) AND f_Q(0) AND (NOT i_C);
 	
 	-- Output logic
-	o_R <= ((NOT f_Q(1)) AND (NOT f_Q(0))) OR (f_Q(1) AND f_Q(0));
+	o_R <= ((NOT f_Q(1)) AND (NOT f_Q(0)));
 	o_Y <= f_Q(1) AND (NOT f_Q(0));
 	o_G <= (NOT f_Q(1)) AND f_Q(0);
 	-------------------------------------------------------	
